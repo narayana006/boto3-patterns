@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boto3-patterns"
+version = "0.1.0"
+description = "Small, runnable, tested boto3 examples: pagination, retries, waiters, errors, concurrency, assumed roles, S3 multipart and DynamoDB batch writes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Narayana Vemburaj" }]
+dependencies = ["boto3>=1.28"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "moto[s3,sqs,sts,dynamodb,ssm]>=5"]
+
+[tool.setuptools]
+packages = ["patterns"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
